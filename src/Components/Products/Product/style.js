@@ -5,7 +5,7 @@ export default makeStyles(() => ({
     maxWidth: '100%',
   },
   media: {
-    height: 0,
+    height: '50px',
     paddingTop: '56.25%', // 16:9
   },
   cardActions: {
@@ -17,4 +17,3 @@ export default makeStyles(() => ({
     justifyContent: 'space-between',
   },
 }));
-

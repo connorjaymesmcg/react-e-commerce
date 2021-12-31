@@ -6,7 +6,7 @@ import logo from '../../assets/warlock2.png';
 
 import useStyles from './navbarStyles';
 
-const Navbar = () => {
+const Navbar = ({ cartProducts }) => {
   const classes = useStyles();
 
   return (
@@ -20,7 +20,7 @@ const Navbar = () => {
           <div className={classes.grow} />
           <div className={classes.button}>
             <IconButton aria-label='Show cart items' color='inherit'>
-              <Badge badgeContent={2} color='secondary'>
+              <Badge badgeContent={cartProducts.total_items} color='secondary'>
                 <ShoppingCart />
               </Badge>
             </IconButton>
