@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
 
 import { Products, Navbar, Cart } from './Components';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // TODO create store/context to avoid prop drilling
 
@@ -32,11 +33,13 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <Navbar cartProducts={cart} />
-      {/* <Products products={products} onAddToCart={addToCartHandler} /> */}
-      <Cart cart={cart} />
-    </div>
+    <Router>
+      <div>
+        <Navbar cartProducts={cart}  />
+        {/* <Products products={products} onAddToCart={addToCartHandler} /> */}
+        <Cart cart={cart} />
+      </div>
+    </Router>
   );
 };
 
