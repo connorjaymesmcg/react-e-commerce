@@ -31,8 +31,6 @@ const App = () => {
     fetchCart();
   }, []);
 
-  
-
   return (
     <div>
       <Navbar cartProducts={cart} />
