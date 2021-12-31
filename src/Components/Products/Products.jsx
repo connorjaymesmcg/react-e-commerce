@@ -5,12 +5,12 @@ import Product from './Product/Product';
 
 import useStyles from './productsStyles';
 
-const products = [
-  { id: 1, name: 'Shoes', description: 'Skate shoes', price: '$5', image: 'https://picsum.photos/id/0/200/300' },
-  { id: 2, name: 'MacBook Pro', description: 'Apple MacBook', price: '$3000', image: 'https://picsum.photos/id/0/200/300' },
-];
+// const products = [
+//   { id: 1, name: 'Shoes', description: 'Skate shoes', price: '$5', image: 'https://picsum.photos/id/0/200/300' },
+//   { id: 2, name: 'MacBook Pro', description: 'Apple MacBook', price: '$3000', image: 'https://picsum.photos/id/0/200/300' },
+// ];
 
-const Products = () => {
+const Products = ({ products }) => {
   const classes = useStyles();
 
   return (

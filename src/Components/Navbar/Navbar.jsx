@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 
-import logo from '../../assets/shop.png';
+import logo from '../../assets/warlock2.png';
 
 import useStyles from './navbarStyles';
 
@@ -14,8 +14,8 @@ const Navbar = () => {
       <AppBar position='fixed' className={classes.appBar} color='inherit'>
         <Toolbar>
           <Typography variant='h6' className={classes.title} color='inherit'>
-            <img src={logo} alt='Commerce.js' height='55px' className={classes.image} />
-            ReactShop
+            <img src={logo} alt='Commerce.js' height='65px' className={classes.image} />
+            Wizard's Stash
           </Typography>
           <div className={classes.grow} />
           <div className={classes.button}>

@@ -1,15 +1,25 @@
-import React from 'react';
-
-// import Navbar from './Components/Navbar/Navbar';
-// import Products from './Components/Products/Products';
+import React, { useState, useEffect } from 'react';
+import { commerce } from './lib/commerce';
 
 import { Products, Navbar } from './Components';
 
 const App = () => {
+  const [products, setProducts] = useState([]);
+
+  const fetchProducts = async () => {
+    const { data } = await commerce.products.list();
+    console.log(data);
+    setProducts(data);
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
   return (
     <div>
       <Navbar />
-      <Products />
+      <Products products={products} />
     </div>
   );
 };
