@@ -35,9 +35,15 @@ const App = () => {
   return (
     <Router>
       <div>
-        <Navbar cartProducts={cart}  />
-        {/* <Products products={products} onAddToCart={addToCartHandler} /> */}
-        <Cart cart={cart} />
+        <Navbar cartProducts={cart} />
+        <Switch>
+          <Route exact path="/">
+            <Products products={products} onAddToCart={addToCartHandler} />
+          </Route>
+          <Route exact path="/cart">
+            <Cart cart={cart} />
+          </Route>
+        </Switch>
       </div>
     </Router>
   );
