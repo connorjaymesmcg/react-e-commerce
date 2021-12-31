@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
 
-import { Products, Navbar } from './Components';
+import { Products, Navbar, Cart } from './Components';
+
+// TODO create store/context to avoid prop drilling
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -29,12 +31,13 @@ const App = () => {
     fetchCart();
   }, []);
 
-  console.log(cart);
+  
 
   return (
     <div>
       <Navbar cartProducts={cart} />
-      <Products products={products} onAddToCart={addToCartHandler} />
+      {/* <Products products={products} onAddToCart={addToCartHandler} /> */}
+      <Cart cart={cart} />
     </div>
   );
 };
