@@ -15,7 +15,7 @@ const Checkout = () => {
       <main className={classes.layout}>
         <Paper className={classes.Paper}>
           <Typography variant='h4' align='center'>Checkout</Typography>
-          <Stepper activeStep={0} className={classes.stepper}>
+          <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((step) => (
               <Step key={step}>
                 <StepLabel>{step}</StepLabel>
