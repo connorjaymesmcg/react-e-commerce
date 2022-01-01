@@ -9,7 +9,7 @@ import useStyles from './checkoutStyles';
 const steps = ['Shipping Address', 'Payment Details'];
 
 const Checkout = () => {
-  const [activeStep, setActiveStep] = useState(2);
+  const [activeStep, setActiveStep] = useState(0);
   const classes = useStyles();
 
   const Confirmation = () => {
