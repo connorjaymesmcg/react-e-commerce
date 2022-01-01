@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
 
-import { Products, Navbar, Cart } from './Components';
+import { Products, Navbar, Cart, Checkout } from './Components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // TODO create store/context to avoid prop drilling
@@ -27,7 +27,6 @@ const App = () => {
 
   const updateCartQtyHandler = async (productId, quantity) => {
     const { cart } = await commerce.cart.update(productId, { quantity });
-    console.log();
     setCart(cart);
   };
 
@@ -55,12 +54,10 @@ const App = () => {
             <Products products={products} onAddToCart={addToCartHandler} />
           </Route>
           <Route exact path="/cart">
-            <Cart
-              cart={cart}
-              onEmptyCartHandler={clearCartHandler}
-              onUpdateCartQty={updateCartQtyHandler}
-              onRemoveCartItem={removeCartItemHandler}
-            />
+            <Cart cart={cart} onEmptyCartHandler={clearCartHandler} onUpdateCartQty={updateCartQtyHandler} onRemoveCartItem={removeCartItemHandler} />
+          </Route>
+          <Route exact path="/checkout">
+            <Checkout />
           </Route>
         </Switch>
       </div>
