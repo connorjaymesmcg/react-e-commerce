@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { InputLabel, Select, MenuItem, Button, Grid, Typography } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
 
+import { commerce } from '../../lib/commerce';
+
 import FormInput from './FormInput';
 
-const AddressForm = () => {
+const AddressForm = ({ checkoutToken }) => {
+  const [shippingCountries, setShippingCountries] = useState([]);
+  const [shippingCountry, setShippingCountry] = useState('');
+  const [shippingSubvisions, setShippingSubvisions] = useState([]);
+  const [shippingSubvision, setShippingSubvision] = useState('');
+  const [shippingOptions, setShippingOptions] = useState([]);
+  const [shippingOption, setShippingOption] = useState('');
   const methods = useForm();
+
+  const fetchShippingCountries = async (checkoutTokenId) => {
+    const response = await commerce.services.localeListShippingCountries(checkoutTokenId);
+    console.log(response);
+  };
+
+  useEffect(() => {
+    fetchShippingCountries(checkoutToken);
+  }, []);
 
   return (
     <>
