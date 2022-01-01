@@ -1,17 +1,22 @@
 import React from 'react';
 import { Container, Typography, Button, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import useStyles from './cartStyles';
 import CartItem from './CartItem/CartItem';
 
-const Cart = ({ cart }) => {
+
+
+const Cart = ({ cart, onEmptyCartHandler, onRemoveCartItem, onUpdateCartQty }) => {
   const classes = useStyles();
 
 
 
   const EmptyCart = () => {
     return (
-      <Typography variant='subtitle1'>No items in cart. Start adding some!</Typography>
+      <Typography variant='subtitle1' align='center'>
+        <Link to='/' className={classes.link}> No items in cart. Start adding some!</Link>
+      </Typography>
     );
   };
 
@@ -22,7 +27,7 @@ const Cart = ({ cart }) => {
           {cart.line_items.map((item) => (
             <Grid item xs={12} sm={4} key={item.id}>
               <div>
-                <CartItem item={item} />
+                <CartItem onRemoveCartItem={onRemoveCartItem} onUpdateCartQty={onUpdateCartQty} item={item} />
               </div>
             </Grid>
           ))}
@@ -32,7 +37,7 @@ const Cart = ({ cart }) => {
             Subtotal: {cart.subtotal.formatted_with_symbol}
           </Typography>
           <div>
-            <Button className={classes.emptyButton} size='large' type='button' variant='contained' color='secondary'>Empty Cart</Button>
+            <Button onClick={onEmptyCartHandler} className={classes.emptyButton} size='large' type='button' variant='contained' color='secondary'>Empty Cart</Button>
             <Button className={classes.checkoutButton} size='large' type='button' variant='contained' color='primary'>Checkout</Button>
           </div>
         </div>
@@ -47,7 +52,7 @@ const Cart = ({ cart }) => {
     <Container>
       <div className={classes.toolbar} />
       <Typography className={classes.title} variant='h3' gutterBottom>Your Shopping Cart</Typography>
-      {cart.total_items.length ? < EmptyCart /> : <FilledCart />}
+      {!cart.total_items ? <EmptyCart /> : <FilledCart />}
     </Container>
   );
 };
