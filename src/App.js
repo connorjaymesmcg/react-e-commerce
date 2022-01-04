@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
 
-import { Products, Navbar, Cart, Checkout } from './Components';
+import { CssBaseline } from '@material-ui/core';
+
+import { Products, Navbar, Cart, Checkout, Hero } from './Components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // TODO create store/context to avoid prop drilling
@@ -66,20 +68,23 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        <Navbar cartProducts={cart} />
-        <Switch>
-          <Route exact path="/">
-            <Products products={products} onAddToCart={addToCartHandler} />
-          </Route>
-          <Route exact path="/cart">
-            <Cart cart={cart} onEmptyCartHandler={clearCartHandler} onUpdateCartQty={updateCartQtyHandler} onRemoveCartItem={removeCartItemHandler} />
-          </Route>
-          <Route exact path="/checkout">
-            <Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
-          </Route>
-        </Switch>
-      </div>
+      <CssBaseline>
+        <div>
+          <Navbar cartProducts={cart} />
+          <Switch>
+            <Route exact path="/">
+              <Hero />
+              <Products products={products} onAddToCart={addToCartHandler} />
+            </Route>
+            <Route exact path="/cart">
+              <Cart cart={cart} onEmptyCartHandler={clearCartHandler} onUpdateCartQty={updateCartQtyHandler} onRemoveCartItem={removeCartItemHandler} />
+            </Route>
+            <Route exact path="/checkout">
+              <Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
+            </Route>
+          </Switch>
+        </div>
+      </CssBaseline>
     </Router>
   );
 };
