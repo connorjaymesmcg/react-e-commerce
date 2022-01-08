@@ -25,8 +25,8 @@ const Hero = () => {
             </video>
           </div>
         </Grid>
-        <Grid item>
-          <Button className={classes.button}>Here's a button</Button>
+        <Grid className={classes.button} item>
+          <Button>Proceed</Button>
         </Grid>
       </Grid>
     </div >

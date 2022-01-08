@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
     height: '100vh',
     // width: '100vw',
     margin: '0 auto',
-    // position: 'relative',
+    position: 'relative',
   },
   videoContainer: {
     position: 'absolute',
@@ -28,5 +28,9 @@ export default makeStyles((theme) => ({
     height: 'auto',
     transform: 'translate(-50%, -50%)',
   },
-  button: {},
+  button: {
+    position: 'absolute',
+    display: 'inline-block',
+    top: '50%',
+  },
 }));
