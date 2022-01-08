@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Button, CssBaseline } from '@material-ui/core';
+import { Container, Typography, Button, CssBaseline, Grid, } from '@material-ui/core';
 
 import useStyles from './heroStyle';
 
@@ -11,16 +11,25 @@ const Hero = () => {
   const classes = useStyles();
 
   return (
-    <div >
-      <video
-        className={classes.heroVideo}
-        src={desertDunes}
-        autoPlay
-        muted
-        loop>
-      </video>
-    </div>
-
+    <div className={classes.container}>
+      <Grid container justifyContent='center' maxWidth='xl'>
+        <Grid item>
+          <div className={classes.videoContainer}>
+            <video
+              className={classes.heroVideo}
+              src={desertDunes}
+              autoPlay
+              muted
+              loop
+            >
+            </video>
+          </div>
+        </Grid>
+        <Grid item>
+          <Button className={classes.button}>Here's a button</Button>
+        </Grid>
+      </Grid>
+    </div >
 
   );
 };
