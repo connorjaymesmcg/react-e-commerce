@@ -26,11 +26,17 @@ export default makeStyles((theme) => ({
     right: '50px',
     width: 'auto',
     height: 'auto',
-    transform: 'translate(-50%, -50%)',
+    // transform: 'translate(-50%, -50%)',
   },
-  button: {
+  buttonContainer: {
     position: 'absolute',
     display: 'inline-block',
     top: '50%',
+  },
+  button: {
+    letterSpacing: '1.02857em',
+    textIndent: '1.02857em',
+    color: '#9837b2 ',
+    fontSize: '1.5rem',
   },
 }));

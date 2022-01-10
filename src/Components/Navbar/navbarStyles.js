@@ -10,6 +10,8 @@ export default makeStyles((theme) => ({
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
+    backgroundColor: 'transparent',
+    borderBottom: 'none',
   },
   title: {
     flexGrow: 1,
@@ -17,6 +19,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     textDecoration: 'none',
     fontFamily: 'BlinkMacSystemFont',
+    color: '#9837b2 ',
   },
   image: {
     marginRight: '10px',

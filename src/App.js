@@ -13,6 +13,7 @@ const App = () => {
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
+  const [isEntered, setIsEntered] = useState(false);
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -60,6 +61,10 @@ const App = () => {
     }
   };
 
+  const siteIsEnteredHandler = () => {
+    setIsEntered(true);
+  };
+
   useEffect(() => {
     fetchProducts();
     fetchCart();
@@ -69,11 +74,11 @@ const App = () => {
     <Router>
       <CssBaseline>
         <div>
-          <Navbar cartProducts={cart} />
+          {isEntered && <Navbar cartProducts={cart} />}
           <Switch>
             <Route exact path="/">
-              <Hero />
-              <Products products={products} onAddToCart={addToCartHandler} />
+              <Hero isEntered={isEntered} enterSite={siteIsEnteredHandler} />
+              {isEntered && <Products products={products} onAddToCart={addToCartHandler} />}
             </Route>
             <Route exact path="/cart">
               <Cart cart={cart} onEmptyCartHandler={clearCartHandler} onUpdateCartQty={updateCartQtyHandler} onRemoveCartItem={removeCartItemHandler} />

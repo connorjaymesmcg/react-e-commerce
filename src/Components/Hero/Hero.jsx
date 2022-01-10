@@ -5,9 +5,9 @@ import useStyles from './heroStyle';
 
 // import waterfall from '../../assets/waterfall.jpg';
 
-import desertDunes from '../../assets/desertDunes.mp4';
+import desertDunes from '../../assets/connork.MP4';
 
-const Hero = () => {
+const Hero = ({ enterSite, isEntered }) => {
   const classes = useStyles();
 
   return (
@@ -25,8 +25,8 @@ const Hero = () => {
             </video>
           </div>
         </Grid>
-        <Grid className={classes.button} item>
-          <Button>Proceed</Button>
+        <Grid className={classes.buttonContainer} item>
+          {!isEntered && <Button onClick={enterSite} className={classes.button}>Proceed</Button>}
         </Grid>
       </Grid>
     </div >
@@ -35,3 +35,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
